@@ -1,5 +1,11 @@
 #include "shell.h"
 
+/**
+ * tokenizer - Tokenize a string into an array of strings.
+ * @line: The input string to tokenize.
+ * Return: An array of strings representing the tokens.
+ */
+
 char **tokenizer(char *line)
 {
 char *token = NULL, *tmp = NULL;
@@ -14,8 +20,8 @@ tmp = _strdup(line);
 token = strtok(tmp, DELIM);
 if (token == NULL)
 {
-free(line), line = NULL;
-free(tmp), tmp = NULL;
+free(line);
+free(tmp);
 return (NULL);
 }
 
@@ -24,11 +30,11 @@ while (token)
 cpt++;
 token = strtok(NULL, DELIM);
 }
-free(tmp), tmp = NULL;
+free(tmp);
 command = malloc(sizeof(char *) * (cpt + 1));
 if (!command)
 {
-free(line), line = NULL;
+free(line);
 return (NULL);
 }
 token = strtok(line, DELIM);
@@ -38,7 +44,7 @@ command[i] = _strdup(token);
 token = strtok(NULL, DELIM);
 i++;
 }
-free(line), line = NULL;
+free(line);
 command[i] = NULL;
 return (command);
 }

@@ -1,5 +1,12 @@
 #include "shell.h"
 
+/**
+ * _execute - Execute a command.
+ * @command: An array of strings representing the command and its arguments.
+ * @argv: An array of strings representing the command-line arguments.
+ *
+ * Return: The exit status of the command.
+ */
 int _execute(char **command, char **argv)
 {
 pid_t child;
