@@ -11,7 +11,7 @@ int main(int ac, char **argv)
 {
 char *line = NULL;
 char **command = NULL;
-int status = 0;
+int status = 0, idx = 0;
 (void) ac;
 while (1)
 {
@@ -24,11 +24,14 @@ write(STDOUT_FILENO, "\n", 1);
 }
 break;
 }
+idx++;
 command = tokenizer(line);
 if (!command)
 continue;
+if(is_builtin())
+handle_builtin();
 else
-status = _execute(command, argv);
+status = _execute(command, argv, idx);
 }
 return (status);
 }
