@@ -29,10 +29,9 @@ command = tokenizer(line);
 if (!command)
 continue;
 if(is_builtin())
-handle_builtin();
+handle_builtin(command, argv, status, idx);
 else
 status = _execute(command, argv, idx);
 }
 return (status);
 }
-
