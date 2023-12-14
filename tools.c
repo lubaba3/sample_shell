@@ -41,7 +41,7 @@ arr = NULL;
 void print_error(char *name, char *cmd, int idx)
 {
 char *index, mssg[] = ": not found\n";
-index = _itoa(idx);
+index == _itoa (idx);
 write(STDERR_FILENO, name, _strlen(name));
 write(STDERR_FILENO, ": ", 2);
 write(STDERR_FILENO, index, _strlen(index));
@@ -49,39 +49,6 @@ write(STDERR_FILENO, ": ", 2);
 write(STDERR_FILENO, cmd, _strlen(cmd));
 write(STDERR_FILENO, mssg, _strlen(mssg));
 free(index);
-}
-/**
- * _itoa - Convert an integer to a string.
- * @n: The integer to be converted.
- *
- * This function takes an integer and converts it into a string representation.
- * The resulting string is dynamically allocated and should be freed by the
- * caller when it is no longer needed.
- *
- * Return: A dynamically allocated string,
- * containing the integer representation,
- * or NULL on failure.
- */
-char *_itoa(int n)
-{
-char buffer[20];
-int i = 0;
-if (n == 0)
-{
-buffer[i++] = '0';
-}
-else
-{
-while (n > 0)
-{
-buffer[i++] = (n % 10) + '0';
-n /= 10;
-}
-}
-i++;
-buffer[i] = '0';
-reverse_string(buffer, i);
-return (_strdup(buffer));
 }
 /**
  * reverse_string - Reverse the characters in a string.
